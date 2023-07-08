@@ -8,15 +8,15 @@ console.log(import.meta.env.VITE_API_KEY)
 
 // "Explain things like you would to a 10 year old learning how to code."
 const systemMessage = { //  Explain things like you're talking to a software professional with 5 years of experience.
-  "role": "system", "content": "Explain things like you're talking to a software professional with 2 years of experience."
+  "role": "system", "content": "talk like a hotel agency "
 }
 
 function App() {
   const [messages, setMessages] = useState([
     {
-      message: "Hello, I'm ChatGPT! Ask me anything!",
+      message: "Hello, I'm trustify! Ask me anything!",
       sentTime: "just now",
-      sender: "ChatGPT"
+      sender: "trustify"
     }
   ]);
   const [isTyping, setIsTyping] = useState(false);
@@ -45,7 +45,7 @@ function App() {
 
     let apiMessages = chatMessages.map((messageObject) => {
       let role = "";
-      if (messageObject.sender === "ChatGPT") {
+      if (messageObject.sender === "trustify") {
         role = "assistant";
       } else {
         role = "user";
@@ -79,7 +79,7 @@ function App() {
       console.log(data);
       setMessages([...chatMessages, {
         message: data.choices[0].message.content,
-        sender: "ChatGPT"
+        sender: "trustify"
       }]);
       setIsTyping(false);
     });
@@ -92,7 +92,7 @@ function App() {
           <ChatContainer>       
             <MessageList 
               scrollBehavior="smooth" 
-              typingIndicator={isTyping ? <TypingIndicator content="ChatGPT is typing" /> : null}
+              typingIndicator={isTyping ? <TypingIndicator content="Trustify is typing" /> : null}
             >
               {messages.map((message, i) => {
                 console.log(message)
